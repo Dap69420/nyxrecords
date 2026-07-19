@@ -53,17 +53,10 @@ function buildMarquee(){
   const strip = document.getElementById("marqueeStrip");
   const track = document.getElementById("marqueeTrack");
   const group = `<span>NYX RECORDS</span><span class="hollow">SIMPLE</span><span>NYX RECORDS</span><span class="hollow">EFFICIENT</span>`;
-  const speedPxPerSecond = 60;
-
   track.style.animation = "none";
-  track.innerHTML = group;
-  const groupWidth = track.scrollWidth || 600;
-  const viewportWidth = strip.clientWidth;
-  const repeats = Math.max(2, Math.ceil((viewportWidth * 2) / groupWidth));
-  track.innerHTML = group.repeat(repeats * 2);
-  const halfWidth = groupWidth * repeats;
-  const duration = halfWidth / speedPxPerSecond;
-  track.style.animation = `scrollLeft ${duration}s linear infinite`;
+  track.innerHTML = group.repeat(10);
+  void strip.offsetWidth;
+  track.style.animation = "scrollLeft 20s linear infinite";
 }
 
 function setupCursor(){
@@ -274,7 +267,6 @@ function setupHomePage(){
   setupNavBubble();
   setupReveal();
   setupPlayer();
-  setupDemoPopup();
 
   let marqueeResizeTimer;
   window.addEventListener("resize", () => {
