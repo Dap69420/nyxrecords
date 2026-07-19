@@ -33,15 +33,6 @@ module.exports = async function submitDemo(req, res) {
   ];
 
   if (body.contactEmail) fields.push({ name: "Contact Email", value: body.contactEmail, inline: false });
-  if (body.spotifyDisplayName) {
-    fields.push({
-      name: "Submitted By (Spotify)",
-      value: body.spotifyProfileUrl
-        ? `[${body.spotifyDisplayName}](${body.spotifyProfileUrl})`
-        : body.spotifyDisplayName,
-      inline: false,
-    });
-  }
   if (body.notes) fields.push({ name: "Notes", value: String(body.notes).slice(0, 1000), inline: false });
 
   const discordPayload = {
