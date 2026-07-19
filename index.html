@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYX Records</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="/assets/css/home.css">
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<!-- ===== DEMO POPUP ===== -->
+<div class="demo-overlay" id="demoOverlay">
+  <div class="demo-modal">
+    <button class="demo-close" id="demoClose" aria-label="Close">
+      <svg viewBox="0 0 24 24"><path d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L12 13.41l-6.29 6.3-1.42-1.42L10.59 12 4.29 5.71 5.71 4.29 12 10.59l6.29-6.3z"></path></svg>
+    </button>
+    <div class="demo-mark">
+      <div class="ring"></div>
+      <img class="logo-glow-sm" src="/images/logo.png" alt="NYX Records logo" style="width:70%;height:70%;object-fit:contain;position:relative;z-index:2;">
+    </div>
+    <div class="eyebrow" style="justify-content:center;">Got a demo?</div>
+    <h2 class="display demo-title">SEND US<br>A DEMO</h2>
+    <p class="demo-text">Connect with Spotify and submit your track on our demo portal — we'll get back to you in 1-2 days.</p>
+<a href="/demo/" class="demo-cta">SUBMIT A DEMO</a>
+    <button type="button" class="demo-skip" id="demoSkip">No thanks</button>
+  </div>
+</div>
+<header id="siteHeader">
+  <div class="logo-mark"><span class="dot"></span>NYX RECORDS</div>
+  <nav class="links" id="navLinks">
+    <div class="nav-bubble" id="navBubble"></div>
+    <a href="#about" data-section="about">About</a>
+    <a href="#artists" data-section="artists">Artists</a>
+    <a href="#staff" data-section="staff">Staff</a>
+<a href="/demo/">Demos</a>
+  </nav>
+  <!-- ===== MUSIC PLAYER ===== -->
+  <div class="player" id="player">
+    <div class="vinyl" id="vinyl"></div>
+    <button class="player-btn" id="prevBtn" aria-label="Previous track">
+      <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6L18 6v12z"></path></svg>
+    </button>
+    <button class="player-btn" id="playBtn" aria-label="Play">
+      <svg viewBox="0 0 24 24" id="playIcon"><path d="M8 5v14l11-7z"></path></svg>
+    </button>
+    <button class="player-btn" id="nextBtn" aria-label="Next track">
+      <svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"></path></svg>
+    </button>
+    <div class="track-info">
+      <div class="track-title"><span id="trackTitle">Select a track</span></div>
+      <div class="track-artist" id="trackArtist">NYX RECORDS</div>
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Real audio element — swap the src values in the TRACKS array below the script -->
+  <audio id="audio" preload="none"></audio>
+</header>
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="glow" id="glow"></div>
+  <div class="logo-placeholder">
+    <div class="ring"></div>
+    <img class="logo-glow" src="/images/logo.png" alt="NYX Records logo" style="width:70%;height:70%;object-fit:contain;position:relative;z-index:2;">
+  </div>
+  <h1 class="display">
+    <span class="line"><span>NYX</span></span>
+    <span class="line"><span>RECORDS</span></span>
+  </h1>
+  <p class="tagline">SIMPLE. EFFICIENT.</p>
+</section>
+<div class="marquee-strip" id="marqueeStrip">
+  <div class="track" id="marqueeTrack"></div>
+</div>
+<!-- ===== ABOUT ===== -->
+<section id="about" style="padding-top:60px;">
+  <div class="about">
+    <div class="reveal">
+      <div class="about-mark">
+        <img class="logo-glow" src="/images/logo.png" alt="NYX Records logo" style="width:60%;height:60%;object-fit:contain;position:relative;z-index:2;">
+      </div>
+    </div>
+    <div class="about-body reveal">
+      <div class="eyebrow">About the label</div>
+      <h2 class="section-title" style="margin-bottom:26px;">ABOUT US</h2>
+      <p>We are an independent record label focused on supporting our artists no matter their size.</p>
+      <p>Our friends, staff and contributors do their best to get your name out there.</p>
+      <div class="stat-row">
+        <div><span class="num display">00</span><span class="label">Artists Signed</span></div>
+        <div><span class="num display">00</span><span class="label">Releases</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== ARTISTS ===== -->
+<section id="artists">
+  <div class="eyebrow reveal">The roster</div>
+  <h2 class="section-title reveal">Artists</h2>
+  <div class="grid" id="artistGrid"></div>
+</section>
+<!-- ===== STAFF ===== -->
+<section id="staff">
+  <div class="eyebrow reveal">Behind the label</div>
+  <h2 class="section-title reveal">Staff</h2>
+  <div class="grid" id="staffGrid"></div>
+</section>
+<footer>
+  <div class="foot-logo display">NYX RECORDS</div>
+  <div class="foot-links">
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer">Spotify</a>
+    <a href="https://soundcloud.com" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+    <a href="mailto:contact@nyxrecords.com">Contact</a>
+  </div>
+  <div class="foot-note">© <span id="year"></span> NYX Records. All rights reserved.</div>
+</footer>
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"></path></svg>
+</button>
+<script src="/assets/js/home.js" defer></script>
+
+
+</body></html>
