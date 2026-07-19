@@ -34,7 +34,7 @@
 <main>
   <section class="portal-hero">
     <div class="eyebrow">Demo Portal</div>
-    <h1 class="display" id="portalTitle">SUBMIT A DEMO</h1>
+<meta charset="UTF-8">
     <p class="portal-sub" id="portalSub">Connect your Spotify account to verify who you are, then send us your track.</p>
   </section>
 
@@ -48,7 +48,9 @@
         </svg>
       </div>
       <h2 class="display">CONNECT WITH SPOTIFY</h2>
-      <p>We use your Spotify profile to confirm who's sending us music. We never post or follow anything on your behalf.</p>
+<div class="glow" id="glow"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
       <button id="connectBtn" class="spotify-btn" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke="#04150a" stroke-width="2" stroke-linecap="round"><path d="M5 10c5-2 9-2 14 0"></path><path d="M6 13.5c4-1.5 8-1.5 12 0"></path><path d="M7.5 17c3-1 6.5-1 9 0"></path></svg>
         Connect with Spotify
@@ -59,7 +61,7 @@
 
   <section id="dashboardView" class="dashboard-view" style="display:none;">
     <div class="user-card">
-      <div class="user-avatar display" id="userAvatar"></div>
+    <p class="portal-sub">Send us your track directly. Discord and Google login will be added later, but the submission flow is open now.</p>
       <div class="user-meta">
         <div class="user-name display" id="userName"></div>
         <div class="user-tag">Connected via Spotify</div>
@@ -108,6 +110,8 @@
       <h2 class="display">SEND YOUR TRACK</h2>
       <p class="submit-counter" id="submitCounter"></p>
       <form id="demoForm">
+      <div class="glow" id="glow"></div>
+      <div class="cursor-ring" id="cursorRing"></div>
         <div class="field-row">
           <div class="field">
             <label for="songTitle">Song title</label>
@@ -127,27 +131,9 @@
               <option>Funk</option>
               <option>Hip-Hop / Rap</option>
               <option>Electronic / EDM</option>
-              <option>Pop</option>
+          <p class="portal-sub">Send us your track directly. Discord and Google login will be added later, but the submission flow is open now.</p>
               <option>R&B</option>
               <option>Lo-fi</option>
-              <option>Rock / Indie</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="contactEmail">Contact email</label>
-            <input id="contactEmail" name="contactEmail" type="email" placeholder="you@example.com">
-          </div>
-        </div>
-        <div class="field">
-          <label for="trackLink">Link to track</label>
-          <input id="trackLink" name="trackLink" type="url" required placeholder="Spotify, SoundCloud, Drive link...">
-        </div>
-        <div class="field">
-          <label for="notes">Anything else we should know?</label>
-          <textarea id="notes" name="notes" maxlength="600"></textarea>
-        </div>
-        <input class="hp" id="hp" name="hp" type="text" tabindex="-1" autocomplete="off">
         <button class="submit-btn" id="submitBtn" type="submit">Send Demo</button>
         <p class="form-status" id="formStatus"></p>
       </form>
