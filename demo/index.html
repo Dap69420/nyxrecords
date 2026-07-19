@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYX Records — Demo Portal</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/demo.css">
+<script src="/assets/js/demo.js" defer></script>
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<header>
+  <div class="header-left">
+    <a href="/" class="logo-mark"><span class="dot"></span>NYX RECORDS</a>
+    <div class="user-chip" id="headerUserChip" style="display:none;">
+      <div class="user-chip-avatar" id="headerAvatar"></div>
+      <div class="user-chip-text">
+        <span class="user-chip-status">Logged in</span>
+        <span class="user-chip-name" id="headerName"></span>
+      </div>
+    </div>
+  </div>
+  <a href="/" class="back-link">← Back to site</a>
+</header>
+
+<main>
+  <section class="portal-hero">
+    <div class="eyebrow">Demo Portal</div>
+    <h1 class="display" id="portalTitle">SUBMIT A DEMO</h1>
+    <p class="portal-sub" id="portalSub">Connect your Spotify account to verify who you are, then send us your track.</p>
+  </section>
+
+  <section id="connectView" class="connect-view" style="display:flex;">
+    <div class="connect-card">
+      <div class="spotify-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#04150a" stroke-width="2" stroke-linecap="round">
+          <path d="M5 10c5-2 9-2 14 0"></path>
+          <path d="M6 13.5c4-1.5 8-1.5 12 0"></path>
+          <path d="M7.5 17c3-1 6.5-1 9 0"></path>
+        </svg>
+      </div>
+      <h2 class="display">CONNECT WITH SPOTIFY</h2>
+      <p>We use your Spotify profile to confirm who's sending us music. We never post or follow anything on your behalf.</p>
+      <button id="connectBtn" class="spotify-btn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#04150a" stroke-width="2" stroke-linecap="round"><path d="M5 10c5-2 9-2 14 0"></path><path d="M6 13.5c4-1.5 8-1.5 12 0"></path><path d="M7.5 17c3-1 6.5-1 9 0"></path></svg>
+        Connect with Spotify
+      </button>
+      <p class="connect-note" id="connectNote"></p>
+    </div>
+  </section>
+
+  <section id="dashboardView" class="dashboard-view" style="display:none;">
+    <div class="user-card">
+      <div class="user-avatar display" id="userAvatar"></div>
+      <div class="user-meta">
+        <div class="user-name display" id="userName"></div>
+        <div class="user-tag">Connected via Spotify</div>
+      </div>
+      <button class="logout-btn" id="logoutBtn" type="button">Log out</button>
+    </div>
+
+    <div class="top-track-card" id="topTrackCard">
+      <div class="top-track-art" id="topTrackArt"></div>
+      <div>
+        <div class="top-track-label">Your top track right now</div>
+        <div class="top-track-body" id="topTrackBody">Loading…</div>
+      </div>
+    </div>
+
+    <div class="option-grid">
+      <a href="#submitSection" class="option-card">
+        <div class="option-title display">Submit a Demo</div>
+        <div class="option-desc">Send us your track for review</div>
+      </a>
+      <a href="#guidelinesBlock" class="option-card">
+        <div class="option-title display">Guidelines</div>
+        <div class="option-desc">What we're looking for</div>
+      </a>
+      <a id="spotifyProfileLink" href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="option-card">
+        <div class="option-title display">Your Spotify</div>
+        <div class="option-desc">View your public profile ↗</div>
+      </a>
+      <button type="button" class="option-card" id="copyLinkBtn">
+        <div class="option-title display">Share the Portal</div>
+        <div class="option-desc" id="copyLinkDesc">Copy the link to send to a friend</div>
+      </button>
+    </div>
+
+    <details class="guidelines" id="guidelinesBlock">
+      <summary>Submission guidelines</summary>
+      <ul>
+        <li>One track per submission — send your strongest work first.</li>
+        <li>Unmastered is fine. We're listening for the song, not the polish.</li>
+        <li>Link to a private/unlisted stream (Spotify, SoundCloud, Drive) so we can hear the full track.</li>
+        <li>We reply to every submission within 1–2 days.</li>
+      </ul>
+    </details>
+
+    <div class="submit-section" id="submitSection">
+      <h2 class="display">SEND YOUR TRACK</h2>
+      <p class="submit-counter" id="submitCounter"></p>
+      <form id="demoForm">
+        <div class="field-row">
+          <div class="field">
+            <label for="songTitle">Song title</label>
+            <input id="songTitle" name="songTitle" type="text" required maxlength="120">
+          </div>
+          <div class="field">
+            <label for="artistName">Artist / stage name</label>
+            <input id="artistName" name="artistName" type="text" required maxlength="80">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="genre">Genre</label>
+            <select id="genre" name="genre">
+              <option value="">Select a genre</option>
+              <option>Phonk</option>
+              <option>Funk</option>
+              <option>Hip-Hop / Rap</option>
+              <option>Electronic / EDM</option>
+              <option>Pop</option>
+              <option>R&B</option>
+              <option>Lo-fi</option>
+              <option>Rock / Indie</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="contactEmail">Contact email</label>
+            <input id="contactEmail" name="contactEmail" type="email" placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="field">
+          <label for="trackLink">Link to track</label>
+          <input id="trackLink" name="trackLink" type="url" required placeholder="Spotify, SoundCloud, Drive link...">
+        </div>
+        <div class="field">
+          <label for="notes">Anything else we should know?</label>
+          <textarea id="notes" name="notes" maxlength="600"></textarea>
+        </div>
+        <input class="hp" id="hp" name="hp" type="text" tabindex="-1" autocomplete="off">
+        <button class="submit-btn" id="submitBtn" type="submit">Send Demo</button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> NYX Records. All rights reserved.</footer>
+</body>
+</html>
