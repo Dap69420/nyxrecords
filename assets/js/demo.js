@@ -1,21 +1,37 @@
+document.body.classList.add("page-ready");
 document.getElementById("year").textContent = new Date().getFullYear();
 
 const cursorDot = document.getElementById("cursorDot");
-const cursorRing = document.getElementById("cursorRing");
 const glow = document.getElementById("glow");
 
 window.addEventListener("mousemove", event => {
   const { clientX, clientY } = event;
   cursorDot.style.left = clientX + "px";
   cursorDot.style.top = clientY + "px";
-  if (cursorRing){
-    cursorRing.style.left = clientX + "px";
-    cursorRing.style.top = clientY + "px";
-  }
   if (glow){
     glow.style.transform = `translate(${clientX - window.innerWidth / 2}px, ${clientY - window.innerHeight / 2}px) translate(-50%, -50%)`;
   }
 });
+
+function wirePageTransitions(){
+  document.querySelectorAll('a[href^="/"]').forEach(link => {
+    const url = new URL(link.href);
+    if (url.origin !== window.location.origin) return;
+    link.addEventListener("click", event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (link.target === "_blank") return;
+      const current = window.location.pathname.replace(/\/?$/, "/");
+      const next = url.pathname.replace(/\/?$/, "/");
+      if (current === next) return;
+      event.preventDefault();
+      document.body.classList.remove("page-ready");
+      document.body.classList.add("page-leaving");
+      setTimeout(() => { window.location.href = link.href; }, 160);
+    });
+  });
+}
+
+wirePageTransitions();
 
 const demoForm = document.getElementById("demoForm");
 const submitBtn = document.getElementById("submitBtn");
