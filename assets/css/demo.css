@@ -32,6 +32,15 @@ header{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(1.6);}}
 .back-link{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);border:1px solid var(--line);padding:9px 16px;border-radius:30px;transition:color .3s,border-color .3s;flex-shrink:0;}
 .back-link:hover{color:var(--white);border-color:var(--white);}
+@media(max-width:600px){
+  header{padding:16px clamp(16px,4vw,32px);}
+  .logo-mark{font-size:18px;}
+  .back-link{font-size:11px;padding:7px 12px;}
+  main{padding-top:100px;}
+  .portal-hero{padding:0 clamp(16px,5vw,48px) 28px;}
+  .portal-hero h1{font-size:clamp(2rem,7vw,3.6rem);}
+  .portal-sub{font-size:13px;}
+}
 
 main{position:relative;z-index:1;padding-top:150px;}
 .portal-hero{padding:0 clamp(20px,6vw,80px) 36px;text-align:center;}
@@ -66,4 +75,12 @@ main{position:relative;z-index:1;padding-top:150px;}
 .form-status.error{color:#e8756a;}
 .hp{position:absolute;left:-9999px;opacity:0;pointer-events:none;}
 
+@media(max-width:600px){
+  .info-card,.submit-section{padding:28px 20px;}
+  .info-card h2,.submit-section h2{font-size:1.4rem;}
+  .field input,.field select,.field textarea{padding:12px 14px;font-size:14px;}
+  .submit-btn{padding:13px 20px;font-size:11px;}
+}
+
 footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:36px clamp(20px,6vw,80px) 40px;color:var(--grey);font-size:10px;letter-spacing:.05em;}
+@media(max-width:600px){footer{padding:28px clamp(16px,5vw,48px) 32px;font-size:9px;}}
