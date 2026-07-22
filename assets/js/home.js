@@ -76,6 +76,8 @@ function setupCursor(){
 function setupHeader(){
   const header = document.getElementById("siteHeader");
   const toTop = document.getElementById("toTop");
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const navLinks = document.getElementById("navLinks");
 
   window.addEventListener("scroll", () => {
     const y = window.scrollY;
@@ -84,6 +86,24 @@ function setupHeader(){
   });
 
   toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+  // Mobile menu toggle
+  if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener("click", () => {
+      mobileMenuBtn.classList.toggle("active");
+      navLinks.classList.toggle("show");
+      document.body.style.overflow = navLinks.classList.contains("show") ? "hidden" : "";
+    });
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenuBtn.classList.remove("active");
+        navLinks.classList.remove("show");
+        document.body.style.overflow = "";
+      });
+    });
+  }
 }
 
 function setupNavBubble(){
